@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChakraProvider, Box, Button, Input, FormControl, FormLabel, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Switch, Text, VStack, HStack, Heading } from "@chakra-ui/react";
+import ProjectCard from "./ProjectCard";
 import { FaUser, FaHeart, FaVoteYea, FaCheck } from "react-icons/fa";
 import { createClient } from "@supabase/supabase-js";
 
@@ -123,6 +124,16 @@ const ConsentForm = () => {
 };
 
 const Index = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const { data } = await supabase.from("projects").select("*");
+      setProjects(data);
+    };
+    fetchProjects();
+  }, []);
+
   return (
     <ChakraProvider>
       <VStack spacing={8} p={8}>
@@ -134,6 +145,11 @@ const Index = () => {
           <VotingSlider />
           <ConsentForm />
         </HStack>
+        <VStack spacing={8}>
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </VStack>
       </VStack>
     </ChakraProvider>
   );
