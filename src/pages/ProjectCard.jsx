@@ -14,7 +14,7 @@ const ProjectCard = ({ project }) => {
   };
 
   return (
-    <Box p={4} borderWidth={1} borderRadius="lg">
+    <Box p={4} borderWidth={1} borderRadius="lg" bg="white" boxShadow="md">
       <Heading size="md">{project.title}</Heading>
       <Text mt={2}>{project.description}</Text>
       <Slider mt={4} value={vote} onChange={setVote} min={0} max={100}>

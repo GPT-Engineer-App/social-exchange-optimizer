@@ -24,7 +24,7 @@ const UserProfile = () => {
   };
 
   return (
-    <Box p={4} borderWidth={1} borderRadius="lg">
+    <Box p={4} borderWidth={1} borderRadius="lg" bg="white" boxShadow="md">
       <Heading size="md">User Profile</Heading>
       <FormControl mt={4}>
         <FormLabel>Name</FormLabel>
@@ -64,7 +64,7 @@ const MatchingComponent = () => {
   }, []);
 
   return (
-    <Box p={4} borderWidth={1} borderRadius="lg">
+    <Box p={4} borderWidth={1} borderRadius="lg" bg="white" boxShadow="md">
       <Heading size="md">Matches</Heading>
       <VStack mt={4}>
         {matches.map((match) => (
@@ -85,7 +85,7 @@ const VotingSlider = () => {
   };
 
   return (
-    <Box p={4} borderWidth={1} borderRadius="lg">
+    <Box p={4} borderWidth={1} borderRadius="lg" bg="white" boxShadow="md">
       <Heading size="md">Vote on Projects</Heading>
       <Slider mt={4} value={vote} onChange={setVote} min={0} max={100}>
         <SliderTrack>
@@ -108,7 +108,7 @@ const ConsentForm = () => {
   };
 
   return (
-    <Box p={4} borderWidth={1} borderRadius="lg">
+    <Box p={4} borderWidth={1} borderRadius="lg" bg="white" boxShadow="md">
       <Heading size="md">User Consent</Heading>
       <FormControl display="flex" alignItems="center" mt={4}>
         <FormLabel htmlFor="consent" mb="0">

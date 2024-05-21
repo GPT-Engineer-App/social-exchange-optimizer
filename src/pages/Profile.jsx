@@ -22,7 +22,7 @@ const Profile = () => {
   };
 
   return (
-    <Box p={4} borderWidth={1} borderRadius="lg">
+    <Box p={4} borderWidth={1} borderRadius="lg" bg="white" boxShadow="md">
       <Heading size="md">User Profile</Heading>
       <FormControl mt={4}>
         <FormLabel>Name</FormLabel>
