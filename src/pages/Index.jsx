@@ -81,7 +81,10 @@ const VotingSlider = () => {
   const [vote, setVote] = useState(0);
 
   const submitVote = async () => {
-    await supabase.from("votes").insert({ value: vote });
+    const { error } = await supabase.from("votes").insert({ value: vote });
+    if (error) {
+      console.error("Error submitting vote:", error);
+    }
   };
 
   return (
@@ -128,7 +131,11 @@ const Index = () => {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const { data } = await supabase.from("projects").select("*");
+      const { data, error } = await supabase.from("projects").select("*");
+      if (error) {
+        console.error("Error fetching projects:", error);
+        return;
+      }
       setProjects(data);
     };
     fetchProjects();

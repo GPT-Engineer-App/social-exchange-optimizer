@@ -11,14 +11,21 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await supabase.from("profiles").select("*").single();
+      const { data, error } = await supabase.from("profiles").select("*").single();
+      if (error) {
+        console.error("Error fetching profile:", error);
+        return;
+      }
       setProfile(data);
     };
     fetchData();
   }, []);
 
   const updateProfile = async () => {
-    await supabase.from("profiles").update(profile).eq("id", profile.id);
+    const { error } = await supabase.from("profiles").update(profile).eq("id", profile.id);
+    if (error) {
+      console.error("Error updating profile:", error);
+    }
   };
 
   return (

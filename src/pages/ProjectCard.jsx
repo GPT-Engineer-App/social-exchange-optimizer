@@ -10,7 +10,10 @@ const ProjectCard = ({ project }) => {
   const [vote, setVote] = useState(project.vote);
 
   const submitVote = async () => {
-    await supabase.from("votes").insert({ project_id: project.id, value: vote });
+    const { error } = await supabase.from("votes").insert({ project_id: project.id, value: vote });
+    if (error) {
+      console.error("Error submitting vote:", error);
+    }
   };
 
   return (
