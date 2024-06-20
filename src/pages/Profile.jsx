@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
+import { Box, Heading, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://your-supabase-url.supabase.co";
